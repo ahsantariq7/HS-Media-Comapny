@@ -1,0 +1,418 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>HS Media Solutions</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href={% static 'assets/favicon.ico' %} />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href=" {% static '/css/styles.css' %} " rel="stylesheet" />
+        <link href=" {% static '/js/scripts.js' %} " rel="stylesheet" />
+    </head>
+    <style>
+        .custom-card-img {
+            width: 100%; /* Set a fixed width as per your design */
+            height: 100px; /* Set a fixed height as per your design */
+            object-fit: cover; /* Maintain aspect ratio and cover the container */
+        }
+        .video-header {
+            position: absolute;
+            overflow: hidden;
+        }
+        
+        #bgvid {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1; /* Set a negative z-index to place the video behind other content */
+        }
+        
+          body {
+            background-color: black;
+            color: white; /* You can also set the text color to white or any other color that suits your design */
+        }
+        /* Adjust other styling as needed */
+        
+    </style>
+    <body id="page-top" class="bg-video" style="height: 100vh; margin: 0;">
+        <video playsinline autoplay muted loop poster="" id="bgvid" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1;">
+            <!-- Add your video source(s) here -->
+            <source src="{% static "bg/bg_video.mp4" %}" type="video/mp4">
+            <!-- You can add multiple sources for different browser compatibility -->
+            Your browser does not support the video tag.
+        </video>
+        <nav class="navbar navbar-expand-lg navbar-danger fixed-top" id="mainNav">
+            
+            
+            <div class="container">
+                <a class="navbar-brand text-info" href="{% url 'home' %}">
+                <img src="{{ logo_image_url }}" alt="HS Media Logo" >HS Media Solutions
+                  </a>
+                
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu
+                    <i class="fas fa-bars ms-1"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
+  
+                       {% if user.is_authenticated %}
+                     
+                       <li class="nav-item"><a class="nav-link" href="{% url 'startcontract' %}">Contract</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'profile' user.id %}">Edit Profile</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'change_password' %}">Change Password</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}">LogOut</a></li>
+                        {% else %}
+                        
+                        <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Login</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'password_reset' %}">Forgot Password</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'signup' %}">Signup</a></li>
+                        {% endif %}
+                        {% if user.is_authenticated %}
+                       
+                    </ul>
+                </div>
+                <li class="nav-item">
+                    <a class="nav-link">Welcome {{request.user.username}}</a>
+                    {% endif %}
+                </li>
+            </div>
+        </nav>
+<!-- Masthead-->
+<header class="masthead video-header" style="height: 100vh; position: relative; overflow: hidden;">
+    <!-- Video element -->
+  
+
+    <div class="container">
+        <div class="masthead-subheading">Welcome To HS Media Solutions!</div>
+        <div class="masthead-heading text-uppercase">Harnessing Success for Your Business</div>
+        <a class="btn btn-primary btn-xl text-uppercase bg-danger text-white" href="#services">Tell Me More</a>
+    </div>
+</header>
+
+    <div class="container">
+        <div class="masthead-subheading">Welcome To HS Media Solutions!</div>
+        <div class="masthead-heading text-uppercase">Harnessing Success for Your Business</div>
+        <a class="btn btn-primary btn-xl text-uppercase bg-danger text-white" href="#services">Tell Me More</a>
+    </div>
+</header>
+
+        <!-- Services-->
+        <section class="page-section" id="services">
+            <div class="container">
+                <div class="text-center ">
+                    <h2 class="section-heading text-uppercase text-info ">Services</h2>
+                    <h3 class="section-subheading ">Welcome to HS Media Solutions, your trusted partner in the ever-evolving landscape of digital marketing.
+
+                        At HS Media Solutions, we're passionate about helping businesses thrive in the digital age. We understand that the online world can be complex, with new technologies and platforms emerging constantly. That's where we come in. Our mission is to demystify digital marketing and empower businesses to harness its full potential..</h3>
+                </div>
+                <div class="row text-center">
+                    <div class="col-md-4">
+                        <span class="fa-stack fa-4x">
+                            <i class="fas fa-circle fa-stack-2x text-info"></i>
+                            <i class="fas fa-shopping-cart fa-stack-1x fa-inverse"></i>
+                        </span>
+                        <h4 class="my-3 text-info">Who We Are</h4>
+                        <p class="fs-6 text-white"> Our experts bring a wealth of experience in areas like search engine optimization (SEO), social media marketing, pay-per-click advertising (PPC), content marketing, and more. We're not just marketers; we're partners invested in your success.     </div>
+                    
+                    <div class="col-md-4">
+                        <span class="fa-stack fa-4x">
+                            <i class="fas fa-circle fa-stack-2x text-info"></i>
+                            <i class="fas fa-laptop fa-stack-1x fa-inverse"></i>
+                        </span>
+                        <h4 class="my-3 text-info">What we do</h4>
+                        <p class="fs-6 text-white">Our services encompass a wide range of digital marketing strategies and techniques.We tailor our solutions to your specific needs, ensuring a personalized approach that delivers real results.</p>
+                    </div>
+                    <div class="col-md-4">
+                        <span class="fa-stack fa-4x">
+                            <i class="fas fa-circle fa-stack-2x text-info"></i>
+                            <i class="fas fa-lock fa-stack-1x fa-inverse"></i>
+                        </span>
+                        <h4 class="my-3 text-info">Why Choose Us</h4>
+                        <p class="fs-6 text-white">We have a track record of driving growth for our clients. We believe in open communication and collaboration, making your goals our top priority.clear reporting and insights, so you always know how your campaigns are performing.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Portfolio Grid-->
+        <section class="page-section bg-light" id="portfolio">
+            <div class="container">
+                <div class="text-center text-info">
+                    <h2 class="section-heading text-uppercase text-info">Our Services:</h2>
+                    <h3 class="section-subheading">Whether you're a small startup or an established enterprise, HS Media Solutions is here to support your digital marketing endeavors. Let's embark on this journey together, unlocking the full potential of your online presence. Get in touch with us today to explore how we can help you achieve your digital marketing goals.
+
+                        Thank you for considering HS Media Solutions as your partner in the digital marketing world.</h3>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4 col-sm-6 mb-4">
+                        <!-- Portfolio item 1-->
+                        <div class="portfolio-item">
+                            <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal1">
+                                <div class="portfolio-hover">
+                                    <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                                </div>
+                                <img class="img-fluid custom-card-img" src="{% static 'assets/img/portfolio/seo.png' %}" width="100%" alt="..." />
+                            </a>
+                            <div class="portfolio-caption">
+                                <div class="portfolio-caption-heading text-info">SEO</div>
+                                <div class="portfolio-caption-subheading"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 mb-4">
+                        <!-- Portfolio item 2-->
+                        <div class="portfolio-item">
+                            <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal2">
+                                <div class="portfolio-hover">
+                                    <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                                </div>
+                                <img class="img-fluid custom-card-img" src="{% static 'assets/img/portfolio/social.png' %}" width="100%" alt="..." />
+                            </a>
+                            <div class="portfolio-caption">
+                                <div class="portfolio-caption-heading text-info">Social media marketing</div>
+                                <div class="portfolio-caption-subheading"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 mb-4">
+                        <!-- Portfolio item 3-->
+                        <div class="portfolio-item">
+                            <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal3">
+                                <div class="portfolio-hover">
+                                    <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                                </div>
+                                <img class="img-fluid custom-card-img" src="{% static 'assets/img/portfolio/email.png' %}"  alt="..." />
+                            </a>
+                            <div class="portfolio-caption">
+                                <div class="portfolio-caption-heading text-info">Email marketing</div>
+                                <div class="portfolio-caption-subheading"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 mb-4 mb-lg-0">
+                        <!-- Portfolio item 4-->
+                        <div class="portfolio-item">
+                            <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal4">
+                                <div class="portfolio-hover">
+                                    <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                                </div>
+                                <img class="img-fluid custom-card-img" src="{% static 'assets/img/portfolio/pay.png' %}" alt="..." />
+                            </a>
+                            <div class="portfolio-caption">
+                                <div class="portfolio-caption-heading text-info">Pay-per-click</div>
+                                <div class="portfolio-caption-subheading"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 mb-4 mb-sm-0">
+                        <!-- Portfolio item 5-->
+                        <div class="portfolio-item">
+                            <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal5">
+                                <div class="portfolio-hover">
+                                    <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                                </div>
+                                <img class="img-fluid custom-card-img" src="{% static 'assets/img/portfolio/content.png' %}" alt="..." />
+                            </a>
+                            <div class="portfolio-caption">
+                                <div class="portfolio-caption-heading text-info">Content marketing</div>
+                                <div class="portfolio-caption-subheading"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6">
+                        <!-- Portfolio item 6-->
+                        <div class="portfolio-item">
+                            <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal6">
+                                <div class="portfolio-hover">
+                                    <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                                </div>
+                                <img class="img-fluid custom-card-img" src="{% static 'assets/img/portfolio/lead.jpeg' %}" alt="..." />
+                            </a>
+                            <div class="portfolio-caption">
+                                <div class="portfolio-caption-heading text-info">Lead Generation</div>
+                                <div class="portfolio-caption-subheading "> </div>
+                        </div>
+                    </div>
+                    
+                    
+                </div>
+            </div>
+        </section>
+        <!-- Portfolio Grid-->
+     
+        <!-- About-->
+        <section class="page-section" id="about">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase text-info">About</h2>
+                    <h3 class="section-subheading ">Welcome to HS Media Solutions, your trusted partner in the ever-evolving landscape of digital marketing.</h3>
+                </div>
+                <ul class="timeline">
+                    <h1 class="text-info">OUR Humble Beginnings</h1>
+                    <li>
+                        <div class="timeline-image bg-danger"><img class="rounded-circle img-fluid bg-danger" src="" alt="" /></div>
+                       
+                        <div class="timeline-panel">
+                           
+                            <div class="timeline-heading">
+                                
+                                <h4 class="text-info">1</h4>
+                                <h4 class="subheading text-info">Digital Marketing Consultancy</h4>
+                            </div>
+                            <div class="timeline-body"><p></p></div>
+                        </div>
+                    </li>
+                    <li class="timeline-inverted">
+                        <div class="timeline-image bg-danger"><img class="rounded-circle img-fluid bg-danger" src="" alt="" /></div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h4 class="text-info">2</h4>
+                                <h4 class="subheading text-info">Digital Strategy
+                                </h4>
+                            </div>
+                            <div class="timeline-body"><p ></p></div>
+                        </div>
+                    </li>
+                    
+                    <li class="timeline-inverted">
+                        <div class="timeline-image bg-danger"><img class="rounded-circle img-fluid bg-danger" src="{% static 'assets/img/about/pak.jpg' %}" alt="..." /></div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h4 class="text-info">Customers</h4>
+                                <h4 class="subheading text-info">All Over The World</h4>
+                            </div>
+                            <div class="timeline-body"><p >We’re here to help and answer any question you might have.Contact US.</p></div>
+                        </div>
+                    </li>
+                    <li class="timeline-inverted">
+                        <div class="timeline-image bg-danger">
+                            <h4 class="text-white">
+                                Be Part
+                                <br />
+                                Of Our
+                                <br />
+                                Story!
+                            </h4>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        <!-- Team-->
+        <section class="page-section bg-light" id="team">
+            <div class="container">
+                <div class="text-center text-info">
+                    <h2 class="section-heading text-uppercase">Our Amazing Team</h2>
+                    <h3 class="section-subheading">Coming together is a beginning, staying together is progress, and working together is success.</h3>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="team-member">
+                            <img class="mx-auto rounded-circle bg-danger"  src="{% static 'assets/img/team/1.jpeg' %}" alt="..." />
+                            <h4 class="text-info"> Hasnat Khalid</h4>
+                            <p >Digital Creator</p>
+                            <a class="btn btn-danger btn-social mx-2" href="https://www.instagram.com/khalidhasnat/" aria-label="Parveen Anand Twitter Profile"><i class="fab fa-instagram"></i></a>
+                            <a class="btn btn-danger btn-social mx-2" href="https://www.facebook.com/profile.php?id=61551508295267" aria-label="Parveen Anand Facebook Profile"><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-danger btn-social mx-2" href="https://www.linkedin.com/in/hasnat-khalid-9a9b43293/" aria-label="Parveen Anand LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="team-member">
+                            <img class="mx-auto rounded-circle bg-danger" src="{% static 'assets/img/team/2.jpeg' %}" alt="..." />
+                            <h4 class="text-info">Muhammad Shaheer</h4>
+                            <p >Digital marketer | Social Media Manager</p>
+                            <a class="btn btn-danger btn-social mx-2" href="https://www.instagram.com/ch___shaheer/" aria-label="Diana Petersen Instagram Profile"><i class="fab fa-instagram"></i></a>
+                            <a class="btn btn-danger btn-social mx-2" href="https://www.facebook.com/Xeroz22" aria-label="Diana Petersen Facebook Profile"><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-danger btn-social mx-2" href="https://www.linkedin.com/in/muhammad-shaheer-bin-waheed-927382285/" aria-label="Diana Petersen LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                    
+                    
+                </div>
+               
+        </section>
+        <!-- Clients-->
+        <div class="py-5">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-md-3 col-sm-6 my-3">
+                        <a href="#!"><img class="img-fluid img-brand d-block mx-auto" src="{% static 'assets/img/logos/microsoft.svg' %}" alt="..." aria-label="Microsoft Logo" /></a>
+                    </div>
+                    <div class="col-md-3 col-sm-6 my-3">
+                        <a href="#!"><img class="img-fluid img-brand d-block mx-auto" src="{% static 'assets/img/logos/google.svg' %}" alt="..." aria-label="Google Logo" /></a>
+                    </div>
+                    <div class="col-md-3 col-sm-6 my-3">
+                        <a href="#!"><img class="img-fluid img-brand d-block mx-auto" src="{% static 'assets/img/logos/facebook.svg' %}" alt="..." aria-label="Facebook Logo" /></a>
+                    </div>
+                    <div class="col-md-3 col-sm-6 my-3">
+                        <a href="#!"><img class="img-fluid img-brand d-block mx-auto" src="{% static 'assets/img/logos/ibm.svg' %}" alt="..." aria-label="IBM Logo" /></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Contact-->
+        <section class="page-section" id="contact">
+            <div class="container my-4">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase text-info">Contact Us</h2>
+                    <h3 class="section-subheading">For Any Inquiry,Question And Confusion.Contact Us.</h3>
+                </div>
+                <!-- * * * * * * * * * * * * * * *-->
+                <!-- * * SB Forms Contact Form * *-->
+                <!-- * * * * * * * * * * * * * * *-->
+                <!-- This form is pre-integrated with SB Forms.-->
+                <!-- To make this form functional, sign up at-->
+                <!-- https://startbootstrap.com/solution/contact-forms-->
+                <!-- to get an API token!-->
+                
+                <div class="col-md-12 text-center">
+                    <a class="btn btn-danger" href="contact" role="button">Contact US</a>
+                </div>
+                
+            </div>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13906.219035233109!2d71.7323677!3d29.3833233!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x82538cdc80e8fbd%3A0xe8c55b26ad7be248!2sCodeTech%20Bahawalpur!5e0!3m2!1sen!2s!4v1699657321298!5m2!1sen!2s" width="1500" height="500" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </section>
+        <!-- Footer-->
+        <footer class="footer py-4">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-4 text-lg-start">Copyright &copy; codetechbahawalpur 2023</div>
+                    <div class="col-lg-4 my-3 my-lg-0">
+                        <a class="btn btn-danger btn-social mx-2" href="https://www.instagram.com/_hs.media/" aria-label="Twitter"><i class="fab fa-instagram"></i></a>
+                        <a class="btn btn-danger btn-social mx-2" href="https://www.facebook.com/hs.media023" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-danger btn-social mx-2" href="https://www.linkedin.com/company/hsmediasolutions/about/?viewAsMember=true" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                    <div class="col-lg-4 text-lg-end">
+                        <a class="link-danger text-decoration-none me-3" href="#!">Privacy Policy</a>
+                        <a class="link-danger text-decoration-none" href="#!">Terms of Use</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="{% static 'js/scripts.js' %}"></script>
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+        <!-- * *                               SB Forms JS                               * *-->
+        <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+    </body>
+</html>
+
+
+
+
